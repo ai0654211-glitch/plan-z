@@ -1,0 +1,11 @@
+/* Minimal ProductCard styles */
+
+.product-card {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.product-card .title {
+    font-weight: 600;
+}

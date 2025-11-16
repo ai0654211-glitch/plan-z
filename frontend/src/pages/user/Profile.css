@@ -1,0 +1,7 @@
+/* Minimal profile styles */
+
+.profile-page {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 16px;
+}

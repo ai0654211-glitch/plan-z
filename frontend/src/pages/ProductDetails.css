@@ -1,0 +1,10 @@
+/* Minimal ProductDetails styles */
+
+.product-details {
+    display: flex;
+    gap: 16px;
+}
+
+.product-gallery img {
+    max-width: 100%;
+}

@@ -1,0 +1,32 @@
+{
+    "name": "ecommerce-project",
+    "version": "1.0.0",
+    "description": "Complete e-commerce platform with React frontend and Express backend",
+    "type": "module",
+    "scripts": {
+        "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ..",
+        "dev:backend": "cd backend && npm start",
+        "dev:frontend": "cd frontend && npm run dev",
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "build:backend": "cd backend && npm run build",
+        "build:frontend": "cd frontend && npm run build",
+        "build": "npm run build:backend && npm run build:frontend",
+        "start": "npm run dev:backend"
+    },
+    "keywords": [
+        "ecommerce",
+        "react",
+        "express",
+        "mongodb",
+        "nodejs"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.0"
+    }
+}

@@ -1,0 +1,60 @@
+# تعليمات رفع المشروع على GitHub
+
+بما أن Git غير مثبت على النظام، إليك الخطوات اليدوية:
+
+## الخطوة 1: تثبيت Git
+قم بتحميل Git من:
+https://git-scm.com/download/win
+
+وثبتها على جهازك
+
+## الخطوة 2: بعد تثبيت Git
+افتح PowerShell في مجلد المشروع واستخدم:
+
+```powershell
+cd e:\ecommerce-project
+
+# اعداد Git
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+# تهيئة الريبو
+git init
+
+# اضافة جميع الملفات
+git add .
+
+# الكوميت الأول
+git commit -m "Initial commit: Complete e-commerce project setup"
+
+# ربط الريبو البعيد
+git remote add origin https://github.com/ai0654211-glitch/plan-z.git
+
+# دفع الملفات
+git push -u origin main
+```
+
+## بديل: استخدام GitHub Desktop
+إذا كنت تفضل واجهة رسومية:
+1. حمّل GitHub Desktop من: https://desktop.github.com/
+2. افتح مجلد المشروع فيها
+3. قم بـ commit و push مباشرة من الواجهة
+
+## بديل: استخدام GitHub CLI
+```powershell
+# تثبيت GitHub CLI
+winget install GitHub.cli
+
+# بعد التثبيت
+cd e:\ecommerce-project
+gh repo create plan-z --source=. --remote=origin --push
+```
+
+## الملفات المهمة
+- `.gitignore` - استثناء الملفات التي لا نريد رفعها
+- `README.md` - توثيق المشروع
+- `backend/package.json` - dependencies الـ Backend
+- `frontend/package.json` - dependencies الـ Frontend
+
+---
+Created: November 2025

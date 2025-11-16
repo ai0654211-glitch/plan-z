@@ -1,0 +1,6 @@
+/* Minimal ProductFilter styles */
+
+.product-filter {
+    display: flex;
+    gap: 8px;
+}

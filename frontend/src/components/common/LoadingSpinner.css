@@ -1,0 +1,31 @@
+/* Minimal styles for LoadingSpinner placeholder */
+
+.loading-spinner-container {
+    display: inline-block;
+}
+
+.spinner-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.secure-spinner {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-text {
+    font-size: 14px;
+}
+
+.spinner-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+}

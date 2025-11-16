@@ -1,0 +1,11 @@
+/* Minimal footer styles */
+
+.secure-footer {
+    background: #f8fafc;
+    padding: 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
