@@ -261,11 +261,12 @@ class SecureServer {
 // تشغيل السيرفر
 const server = new SecureServer();
 
-server.connectDatabase()
-    .then(() => server.start())
-    .catch(error => {
-        console.error('❌ Failed to start secure server:', error);
-        process.exit(1);
-    });
+// بدء السيرفر أولاً
+server.start();
+
+// محاولة الاتصال بـ MongoDB بشكل منفصل (non-blocking)
+server.connectDatabase().catch(error => {
+    console.warn('⚠️  Database connection attempt failed (non-blocking):', error.message);
+});
 
 export default server;

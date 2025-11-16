@@ -93,6 +93,12 @@ export class AuditLogger {
     // تسجيل حدث أمان
     static async logSecurityEvent(eventType, data = {}) {
         try {
+            // إذا لم تكن هناك اتصالات قاعدة بيانات، تخطي التسجيل
+            if (mongoose.connection.readyState !== 1) {
+                console.warn('⚠️  Database not connected, skipping audit log');
+                return null;
+            }
+
             const logEntry = new AuditLog({
                 eventType,
                 severity: this.calculateSeverity(eventType, data),
@@ -118,7 +124,11 @@ export class AuditLogger {
 
             return logEntry;
         } catch (error) {
-            console.error('Failed to log security event:', error);
+            // تسجيل الخطأ فقط دون إيقاف السيرفر
+            if (process.env.NODE_ENV === 'development') {
+                console.warn('⚠️  Non-blocking error in audit logging:', error.message);
+            }
+            return null;
         }
     }
 

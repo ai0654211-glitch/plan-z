@@ -17,5 +17,7 @@ if (process.env.MONGODB_URI && (process.env.MONGODB_URI.includes('127.0.0.1') ||
     process.env.NODE_ENV = 'development';
     console.log('🔧 Detected local MongoDB; forcing NODE_ENV=development for safe startup');
 }
+
+// Import server module
 await
 import ('./server.js');
