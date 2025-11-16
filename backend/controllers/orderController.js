@@ -471,7 +471,7 @@ export class OrderController {
             refunded: []
         };
 
-        return allowedTransitions[fromStatus] ? .includes(toStatus) || false;
+        return allowedTransitions[fromStatus] ?.includes(toStatus) || false;
     }
 
     // التحقق من الحاجة لإشعار العميل

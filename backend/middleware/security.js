@@ -1,6 +1,6 @@
-const helmet = require('helmet');
-const hpp = require('hpp');
-const xss = require('xss-clean');
+import helmet from 'helmet';
+import hpp from 'hpp';
+import xssClean from 'xss-clean';
 
 // إعدادات Helmet للأمان
 const helmetConfig = helmet({
@@ -30,10 +30,20 @@ const hppConfig = hpp({
 });
 
 // تنظيف بيانات المدخلات من هجمات XSS
-const xssConfig = xss();
+const xssConfig = xssClean();
 
-module.exports = {
+// Middleware الأمان الرئيسي
+const securityMiddleware = (req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    next();
+};
+
+export {
     helmetConfig,
     hppConfig,
     xssConfig,
+    securityMiddleware
 };
