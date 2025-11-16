@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Disallow admin area
+Disallow: /admin
+Disallow: /api
+Disallow: /uploads
+
+# Allow search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

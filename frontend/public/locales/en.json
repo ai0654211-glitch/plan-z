@@ -1,0 +1,32 @@
+{
+    "common": {
+        "welcome": "Welcome",
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "success": "Success",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit"
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "logout": "Logout",
+        "email": "Email",
+        "password": "Password"
+    },
+    "products": {
+        "title": "Products",
+        "add_to_cart": "Add to Cart",
+        "price": "Price",
+        "description": "Description",
+        "category": "Category"
+    },
+    "cart": {
+        "title": "Shopping Cart",
+        "empty": "Cart is empty",
+        "total": "Total",
+        "checkout": "Checkout"
+    }
+}

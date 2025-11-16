@@ -11,6 +11,11 @@ import { SecurityUtils } from './utils/encryption.js';
 import { ValidationUtils } from './utils/validation.js';
 import { AuditLogger } from './middleware/audit.js';
 
+// استيراد routes الجديدة
+import reviewRoutes from './routes/reviews.js';
+import offerRoutes from './routes/offers.js';
+import videoRoutes from './routes/videos.js';
+
 const __filename = fileURLToPath(
     import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -82,7 +87,12 @@ class SecureServer {
             });
         });
 
-        // 2. test route مع التحقق من التوقيع
+        // 2. المسارات الجديدة
+        this.app.use('/api/reviews', reviewRoutes);
+        this.app.use('/api/offers', offerRoutes);
+        this.app.use('/api/videos', videoRoutes);
+
+        // 3. test route مع التحقق من التوقيع
         this.app.post('/api/secure-test',
             AuthMiddleware.authenticateToken,
             ValidationUtils.validateSignature,
@@ -101,14 +111,14 @@ class SecureServer {
             }
         );
 
-        // 3. نظام المراقبة
+        // 4. نظام المراقبة
         this.app.get('/api/security/audit',
             AuthMiddleware.authenticateToken,
             AuthMiddleware.authorize('admin', 'super_admin'),
             AuditLogger.getAuditLogs
         );
 
-        // 4. إحصائيات الأمان
+        // 5. إحصائيات الأمان
         this.app.get('/api/security/stats',
             AuthMiddleware.authenticateToken,
             AuthMiddleware.authorize('admin', 'super_admin'),
